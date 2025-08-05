@@ -1,9 +1,12 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, StatusBar } from 'react-native';
 
 export default function App() {
  return (
    <View style={styles.container}>
-        <Text>Welcome to the app!</Text>
+    <StatusBar hidden={true} />
+        <View style={{ flex:1, justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={styles.title}>We just create an app with internacional language.</Text>
+        </View>
    </View>
   );
 }
@@ -11,8 +14,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#1d1c1c',
+    paddingHorizontal: 20,
   },
+  title:{
+    color: '#fff',
+    fontSize:58,
+    fontWeight: 'bold',
+    lineHeight: 60
+  }
 });
