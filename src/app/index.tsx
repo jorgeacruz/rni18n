@@ -1,6 +1,24 @@
 import { View, Text, StyleSheet, StatusBar, TouchableOpacity, Image } from 'react-native';
 
+// Importing the i18n configuration
+import '../utils/i18n';
+import { useTranslation } from 'react-i18next';
+
 export default function App() {
+
+    // Hook to get the translation function
+    const { t, i18n } = useTranslation();
+    // Function to change the language
+    const changeLanguage = (value: 'pt' | 'en' | 'sp') => {
+    i18n.changeLanguage(value)
+    .then(() => {
+      console.log('Language changed to', value)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
  return (
    <View style={styles.container}>
     <StatusBar hidden={true} />
@@ -8,17 +26,23 @@ export default function App() {
             <Image source={require('../assets/icon.png')} style={styles.logo} />
         </View>
         <View>
-            <Text style={styles.slogan}>The Power of React Native</Text>
-            <Text style={styles.title}>We're just creating an app.</Text>
+            <Text style={styles.slogan}>{t("The Power of React Native")}</Text>
+            <Text style={styles.title}>{t("We are just creating an app.")}</Text>
         </View>
         <View style={styles.btView}>
-            <TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => changeLanguage('pt')}
+            >
                 <Image source={require('../assets/brazil.png')} style={styles.flag} />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => changeLanguage('en')}
+            >
                 <Image source={require('../assets/usa.png')} style={styles.flag} />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+            onPress={() => changeLanguage('sp')}
+            >
                 <Image source={require('../assets/spain.png')} style={styles.flag} />
             </TouchableOpacity>
         </View>
