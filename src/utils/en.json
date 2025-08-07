@@ -1,7 +1,6 @@
 {
-    "translations": 
-    {
-        "We are just creating an app.":"We are just creating an app.",
-        "The Power of React Native":"The Power of React Native"
+    "translation":{
+        "We are just create an app.":"We are just create an app.",
+        "The Power of React Native.":"The Power of React Native."
     }
 }
