@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import Swiper from 'react-native-swiper';
 
+// Importando o i18n
 import './src/utils/i18n'; 
 import { useTranslation } from 'react-i18next';
 
 
 export default function App() {
-  //
+  // Usando o hook useTranslation para acessar as funções de tradução
   const {t, i18n} = useTranslation();
-
+  // Função para alterar o idioma
   const changeLanguage = (value: 'pt' | 'en' | 'sp') => {
     i18n.changeLanguage(value)
     .then(() => {
@@ -22,6 +22,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+       <Text style={styles.Text2}>
+                {t('The Power of React Native.')}
+        </Text>
+        <Text style={styles.Text1}>
+                {t('We are just create an app.')}
+        </Text>   
+
+      <StatusBar hidden={true} />
       <View style={styles.blkFlag}>
         <TouchableOpacity onPress={() => changeLanguage('pt')}>
           <Image source={require('./src/img/brazil.png')} />
@@ -33,35 +41,6 @@ export default function App() {
           <Image source={require('./src/img/spain.png')} />
         </TouchableOpacity>
       </View>
-      <Swiper autoplay={false} autoplayTimeout={4.5}>
-
-        <View>
-          <Image source={require('./src/img/yoda.png')} style={styles.imgSld}/>
-            <View style={styles.blkText}>
-              <Text style={styles.Text1}>
-                {t('May the Force be with you.')}
-                </Text>   
-            </View>
-        </View>
-        <View>
-          <Image source={require('./src/img/vader.png')} style={styles.imgSld}/>
-            <View style={styles.blkText}>
-              <Text style={styles.Text1}>
-                {t('I am your father.')}
-                </Text>   
-            </View>
-        </View>
-        <View>
-          <Image source={require('./src/img/obiwan.png')} style={styles.imgSld}/>
-            <View style={styles.blkText}>
-              <Text style={styles.Text1}>
-                {t('Your eyes can deceive you, dont trust them')}
-                </Text>   
-            </View>
-        </View>
-        
-      </Swiper>
-      <StatusBar style="light" />
     </View>
   );
 }
@@ -69,37 +48,33 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
-  },
-  imgSld: {
-    opacity:0.6,
-  },
-  blkText: {
-    zIndex:30,
-    flexDirection: "row", 
-    alignItems: "flex-start",
-    position:'absolute',
-    bottom:100,
-   // top:560,
-    height:300,
-    paddingHorizontal:20,
-  
-
+    backgroundColor: '#191919',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    padding: 20,
   },
   blkFlag: {
     alignItems:'center',
     justifyContent:'space-between',
-    zIndex:20,
+    zIndex:1,
     flexDirection:'column', 
     position:'absolute',
-    top:100,
+    bottom:100,
     left:20,
     height:130,
    
   },
   Text1: {
     color:'#fff',
-    fontSize:60,
-    lineHeight:60
+    fontSize:55,
+    lineHeight:50,
+    fontWeight:'bold',
+  },
+  Text2: {
+    color:'#fff',
+    fontSize:20,
+    lineHeight:20,
+    fontWeight:500,
+    marginBottom:20,
   }
 });
