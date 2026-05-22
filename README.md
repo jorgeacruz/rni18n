@@ -1,5 +1,6 @@
 <img src='screen.gif' />
 <p></p>
+
 # 🌍 i18n no React Native
 
 Implementar **i18n (internationalization)** em aplicações React Native permite criar apps preparados para múltiplos idiomas e regiões, melhorando a experiência do usuário e tornando o projeto mais escalável.
