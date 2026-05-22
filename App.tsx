@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, ImageBackground } from 'react-native';
 
 // Importando o i18n
 import './src/utils/i18n'; 
@@ -22,6 +22,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+    <ImageBackground source={{uri:'https://i1-e.pinimg.com/736x/06/dd/f5/06ddf50f599a0140de543cdd52d70934.jpg'}} style={{flex:1, position:'absolute', top:0, left:0, width:'110%', height:'110%'}} />
        <Text style={styles.Text2}>
                 {t('The Power of React Native.')}
         </Text>
